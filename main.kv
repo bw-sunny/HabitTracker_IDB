@@ -1,0 +1,39 @@
+<MainScreen>:
+    name: 'main'
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(20)
+        padding: dp(20)
+
+        # Пустое пространство для TopAppBar
+        Widget:
+            size_hint_y: None
+            height: dp(56)
+
+        MDLabel:
+            text: "Ваши привычки"
+            halign: 'center'
+            font_style: 'H5'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            BoxLayout:
+                id: habits_container
+                orientation: 'vertical'
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(10)
+
+                # Здесь будут добавляться привычки
+                MDLabel:
+                    text: "У вас пока нет привычек"
+                    halign: 'center'
+                    theme_text_color: 'Secondary'
+
+        MDRaisedButton:
+            text: "Добавить привычку"
+            pos_hint: {'center_x': 0.5}
+            on_press: root.add_habit()
