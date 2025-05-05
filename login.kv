@@ -1,0 +1,57 @@
+<LoginScreen>:
+    MDFloatLayout:
+        orientation: "vertical"
+
+        MDLabel:
+            text: "Добро пожаловать в HabitTracker!"
+            halign: "center"
+            pos_hint: {"center_x": 0.5, "center_y": 0.8}
+            size_hint_x: 0.8
+            size_hint_y: None
+            height: self.texture_size[1] + dp(20)
+            md_bg_color: 34/255, 152/255, 255/255, 1  # Голубой цвет
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            padding: [dp(10), dp(10)]
+            radius: [dp(15),]
+
+        MDTextField:
+            id: email
+            hint_text: "e-mail или логин"
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            size_hint_x: 0.8
+            required: True
+            mode: "round"
+            fill_color: 0.9, 0.9, 0.9, 1  # Светло-серый фон поля
+            text_color: 0, 0, 0, 1  # Черный текст
+            hint_text_color: 0.4, 0.4, 0.4, 1  # Серый текст подсказки
+
+        MDTextField:
+            id: password
+            hint_text: "пароль"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint_x: 0.8
+            password: True
+            required: True
+            mode: "round"
+            fill_color: 0.9, 0.9, 0.9, 1  # Светло-серый фон поля
+            text_color: 0, 0, 0, 1  # Черный текст
+            hint_text_color: 0.4, 0.4, 0.4, 1  # Серый текст подсказки
+
+        MDRaisedButton:
+            text: "Войти"
+            md_bg_color: 34/255, 152/255, 255/255, 1  # Голубой цвет
+            text_color: 1, 1, 1, 1  # Белый текст
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+            size_hint_x: 0.8
+            elevation_normal: 2
+            on_release: root.try_login()
+
+        MDRaisedButton:
+            text: "Создать аккаунт"
+            md_bg_color: 34/255, 152/255, 255/255, 1  # Голубой цвет
+            text_color: 1, 1, 1, 1  # Белый текст
+            pos_hint: {"center_x": 0.5, "center_y": 0.25}
+            size_hint_x: 0.8
+            elevation_normal: 2
+            on_release: root.switch_to_register()
